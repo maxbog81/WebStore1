@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using WebStore.ViewModels;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController() { }
-
         public IActionResult Index() => View();
-
         public IActionResult Blog() => View();
         public IActionResult BlogSingle() => View();
         public IActionResult Cart() => View();
@@ -22,7 +13,6 @@ namespace WebStore.Controllers
         public IActionResult Login() => View();
         public IActionResult ProductDetails() => View();
         public IActionResult Shop() => View();
-
         public IActionResult Error404() => View();
     }
 }

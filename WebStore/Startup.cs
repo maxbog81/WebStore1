@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebStore.Infrastructure.Interfaces;
@@ -17,6 +16,14 @@ namespace WebStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
+            services.AddScoped<IProductData, InMemoryProductData>();
+
+            //services.AddSingleton<TInterface, TImplementation>(); // - Единый объект на всё время жизни приложения с момента первого обращения к нему
+            //services.AddTransient<>(); // Один объект на каждый запрос экземпляра сервиса
+            //services.AddScoped<>(); // Один объект на время обработки одного входящего запроса (на время действия области)
+
+            services.AddSession();
+
             services.AddMvc();
         }
 
@@ -30,8 +37,10 @@ namespace WebStore
 
             app.UseStaticFiles();
             app.UseDefaultFiles();
+            app.UseCookiePolicy();
 
-            //app.UseMvcWithDefaultRoute();
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
