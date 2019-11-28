@@ -16,12 +16,12 @@ namespace WebStore.Infrastructure.Services
         public SqlProductData(WebStoreContext db) => _db = db;
 
         public IEnumerable<Section> GetSections() => _db.Sections
-            .Include(section => section.Products)
-            .AsEnumerable();
+           .Include(section => section.Products)
+           .AsEnumerable();
 
         public IEnumerable<Brand> GetBrands() => _db.Brands
-            .Include(brand => brand.Products)
-            .AsEnumerable();
+           .Include(brand => brand.Products)
+           .AsEnumerable();
 
         public IEnumerable<Product> GetProducts(ProductFilter Filter = null)
         {
