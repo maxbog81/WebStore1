@@ -23,7 +23,7 @@ namespace WebStore.Data
             //await db.EnsureCreatedAsync();
             await db.MigrateAsync(); // Автоматическое создание и миграция базы до последней версии
 
-            if (await _db.Products.AnyAsync()) return;
+            if(await _db.Products.AnyAsync()) return;
 
             using (var transaction = await db.BeginTransactionAsync())
             {
