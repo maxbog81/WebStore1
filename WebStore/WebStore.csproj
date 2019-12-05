@@ -9,17 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\**" />
     <Compile Remove="wwwroot\imgs\**" />
-    <Content Remove="Models\**" />
     <Content Remove="wwwroot\imgs\**" />
-    <EmbeddedResource Remove="Models\**" />
     <EmbeddedResource Remove="wwwroot\imgs\**" />
-    <None Remove="Models\**" />
     <None Remove="wwwroot\imgs\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.435" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />

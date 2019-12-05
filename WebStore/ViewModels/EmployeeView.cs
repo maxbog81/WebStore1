@@ -10,7 +10,7 @@ namespace WebStore.ViewModels
         public int Id { get; set; }
 
         [Display(Name = "Имя")]
-        [Required(ErrorMessage = "Имя фвляется обязательным", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Имя является обязательным", AllowEmptyStrings = false)]
         [StringLength(200, MinimumLength = 2, ErrorMessage = "Длина имени должна быть в пределах от 2 до 200 символов")]
         [RegularExpression(@"(?:[А-ЯЁ][а-яё]+)|(?:[A-Z][a-z]+)", ErrorMessage = "Странное имя")]
         public string FirstName { get; set; }
